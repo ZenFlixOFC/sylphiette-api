@@ -317,66 +317,6 @@ res.json(resposta.semkey)
 }
 })
 
- //[ - ///////// --- Api's NSFW --- ///////// - ]\\
-
-router.get('/nsfw/loli', async (req, res, next) => {
-var apikey = req.query.apikey;
-if(!apikey) return res.json(resposta.semkey)
-if(listkey.includes(apikey)){
-json = JSON.parse(fs.readFileSync('lib/lolis.json').toString())
-random = json[Math.floor(Math.random() * json.length)]
-res.type('png')
-res.send(await getBuffer(random))
-} else {
-res.json(resposta.semkey)
-}
-})
-
-router.all('/nsfw/elisa-sanches', async (req, res) => {
-apikey = req.query.apikey;
-if(apikey !== key) return res.sendFile(keyinexistente)
-json = JSON.parse(fs.readFileSync('database/nsfwelisa.json').toString())
-random = json[Math.floor(Math.random() * json.length)]
-res.type('png')
-res.send(await getBuffer(random))
-})
-
-router.all('/nsfw/loli-masturbation', async (req, res) => {
-apikey = req.query.apikey;
-if(apikey !== key) return res.sendFile(keyinexistente)
-json = JSON.parse(fs.readFileSync('database/masturbation.json').toString())
-random = json[Math.floor(Math.random() * json.length)]
-res.type('png')
-res.send(await getBuffer(random))
-})
-
-router.all('/nsfw/loli-pussy', async (req, res) => {
-apikey = req.query.apikey;
-if(apikey !== key) return res.sendFile(keyinexistente)
-json = JSON.parse(fs.readFileSync('database/pussy.json').toString())
-random = json[Math.floor(Math.random() * json.length)]
-res.type('png')
-res.send(await getBuffer(random))
-})
-
-router.all('/nsfw/loli-gif', async (req, res) => {
-apikey = req.query.apikey;
-if(apikey !== key) return res.sendFile(keyinexistente)
-json = JSON.parse(fs.readFileSync('database/hnt_gifs.json').toString())
-random = json[Math.floor(Math.random() * json.length)]
-res.type('gif')
-res.send(await getBuffer(random))
-})
-
-router.all('/nsfw/loli-yuri', async (req, res) => {
-apikey = req.query.apikey;
-if(apikey !== key) return res.sendFile(keyinexistente)
-json = JSON.parse(fs.readFileSync('database/yuri.json').toString())
-random = json[Math.floor(Math.random() * json.length)]
-res.type('png')
-res.send(await getBuffer(random))
-})
-
 ///⊰᯽⊱═══❖•ೋ° △ °ೋ•❖═══⊰᯽⊰\\\
        ///FIM DAS APIS E DE TUDO\\\
 ///⊰᯽⊱═══❖•ೋ° △ °ೋ•❖═══⊰᯽⊰\\\
